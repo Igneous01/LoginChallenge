@@ -1,0 +1,33 @@
+﻿@model LoginViewModel
+
+@{ 
+    ViewData["BodyClass"] = "bg-dark";
+    if (ViewData["ReturnUrl"] == null)
+    {
+        ViewData["ReturnUrl"] = "~/Status/Index";
+    }
+
+}
+
+<form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" id="sign-in">
+    <h1>@ViewData["RedirectMessage"]</h1>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" id="loginInput" aria-describedby="loginInput"/>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" id="passwordInput" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <button type="submit" class="btn btn-primary">Sign in</button>
+    <div class="hr-or"></div>
+    <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="btn btn-primary">Register</a>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
