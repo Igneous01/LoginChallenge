@@ -2,7 +2,9 @@
 
 This is the completed coding challenge for OSG. 
 
-Database is a local version of MS SQL Server.
+Using .NET Core and Entity Framework Core.
+
+Using MySQL Driver for Entity Framework.
 
 To create database, open Package Manager Console and type 'Update-Database'
 
